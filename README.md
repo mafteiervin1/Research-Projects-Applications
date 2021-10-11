@@ -12,7 +12,7 @@ Cristi Rusu (MLC) - cristirusu99@gmail.com
 
 Cristi Rosu (MLC) - cristian.rosu453@gmail.com
 
-Balan Maria (MLC) - 
+Balan Maria (MLC) - balanmaria1998@gmail.com
 
 Team coordinator: Adrian Iftene
 
