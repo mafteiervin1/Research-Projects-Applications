@@ -39,10 +39,10 @@ Rosu: Crawling component (Python)
 - will provide a POST endpoint in order to be called by Crawling component
 - output will be a list of JsonProject Objects 
 - a service that will extract properties via individual processors from the input (List of strings) and will build the output
-- the service will call backoffice in order to persist date in the DB
+- the service will call Backoffice in order to persist data in the DB
 
 ### Backoffice component:
-- will provide a POST endpoint to be call internally by Semantic Analysis Component
+- will provide a POST endpoint to be called internally by Semantic Analysis Component
 - will provide some public GET endpoints in order to be used by UI (will fetch data from DB)
 - a service that will contain possible business logic before the data is stored
 - a Dao class that will be used to call the DB
