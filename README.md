@@ -49,7 +49,7 @@ Rosu: Crawling component (Python)
 
 ### UI component:
 - single page app that will display a project list 
-- will call the GET endpoints from the DB to get the data
+- will call the GET endpoints from the Backoffice to get the data
 - will provide filtering options
     
 ==================================================================
