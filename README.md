@@ -6,8 +6,6 @@ Working team
 
 Ervin Maftei (MLC) - emaftei5@gmail.com
 
-Octavian Iacob (MLC) - octavianiiacob@gmail.com
-
 Cristi Rusu (MLC) - cristirusu99@gmail.com
 
 Cristi Rosu (MLC) - cristian.rosu453@gmail.com
