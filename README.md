@@ -53,3 +53,19 @@ Rosu: Crawling component (Python)
 - will provide filtering options
     
 ==================================================================
+
+## Lab 4:
+
+#### Basic implementation for the Semantic Analysis component:
+- Spring framework setup, controller and services setup - Ervin
+- Processor interface and concrete processors dummy implementation - Rosu
+- Using the Spring framework natively allows us to make use of the Singleton (Spring beans), Decorator (annotations) and Chain of responsability (exception handling) design patterns
+- Additionally, we use Builder for creating our JSON objects, Facade for using interfaces and Proxy for exposing our REST API, for now
+
+#### Basic implementation for the Backoffice component - Rusu:
+- Uses Repository pattern to model the DAO
+- Repository interface and Repository start of implementation for MongoDB database
+- Uses Chain of Responsibility pattern to to implement API functionality
+- Offers services as Singletons (usual practice for .NET APIs)
+
+==================================================================
