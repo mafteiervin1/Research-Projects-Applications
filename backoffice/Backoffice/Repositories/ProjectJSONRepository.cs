@@ -18,6 +18,7 @@ namespace BackofficeComponent.Repositories
             _collection = database.GetCollection<ProjectJson>(rpaDatabaseSettings.ProjectsCollectionName);
         }
 
+        public IEnumerable<ProjectJson> ProjectJsons => _collection.AsQueryable().ToEnumerable();
         public IEnumerable<ProjectJson> GetProjectJsons()
         {
             throw new System.NotImplementedException();

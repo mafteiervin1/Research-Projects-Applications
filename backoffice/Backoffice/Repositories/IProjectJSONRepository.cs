@@ -8,6 +8,7 @@ namespace BackofficeComponent.Repositories
 {
     public interface IProjectJsonRepository
     {
+        IEnumerable<ProjectJson> ProjectJsons { get; }
         IEnumerable<ProjectJson> GetProjectJsons();
         ProjectJson GetProjectJsonById(String id);
         ProjectJson InsertProjectJson(ProjectJson projectJson);
