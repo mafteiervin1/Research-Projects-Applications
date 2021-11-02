@@ -24,6 +24,9 @@ public class ProjectHandler {
     @Autowired
     MoreInfoProcessor moreInfoProcessor;
 
+    @Autowired
+    BudgetProcessor budgetProcessor;
+
     public ProjectDetails getProjectDetails(String project) {
         return ProjectDetails.builder()
                              .activePeriod(activePeriodProcessor.getPropertyValue(project))
@@ -31,6 +34,7 @@ public class ProjectHandler {
                              .purpose(purposeProcessor.getPropertyValue(project))
                              .eligibleApplicants(eligibleApplicantsProcessor.getPropertyValue(project))
                              .moreInfo(moreInfoProcessor.getPropertyValue(project))
+                             .budget(budgetProcessor.getPropertyValue(project))
                              .build();
     }
 }
