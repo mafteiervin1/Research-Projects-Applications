@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class PurposeProcessor implements Processor {
+public class PurposeProcessor extends Processor {
 
     @Override
-    public String getPropertyValue(String property) {
-        //log.info("PurposeProcessor");
+    public String getPropertyValue(String project) {
+        log.info("PurposeProcessor");
         return "Dummy objective";
     }
 }

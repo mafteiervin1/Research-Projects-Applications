@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class ActivePeriodProcessor implements Processor {
+public class ActivePeriodProcessor extends Processor {
 
     @Override
-    public String getPropertyValue(String property) {
-        //log.info("ActivePeriodProcessor");
+    public String getPropertyValue(String project) {
+        log.info("ActivePeriodProcessor");
         return "Dummy active period";
     }
 }
