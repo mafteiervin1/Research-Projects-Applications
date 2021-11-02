@@ -3,6 +3,7 @@ using System.Linq;
 using BackofficeComponent.Controllers;
 using BackofficeComponent.Models;
 using BackofficeComponent.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
@@ -14,10 +15,10 @@ namespace UnitTesting
         public void GetAllTest()
         {
             var mockRepo = new Mock<IProjectJsonRepository>();
-            mockRepo.Setup(repo => repo.ProjectJsons).Returns(AddMockData());
+            mockRepo.Setup(repo => repo.ProjectJsons).Returns(GetMockData());
             var controller = new ProjectJsonController(mockRepo.Object);
 
-            var result = controller.Get();
+            var result = controller.Get().Value;
 
             var projectJsons = Assert.IsAssignableFrom<IEnumerable<ProjectJson>>(result);
             Assert.Equal(3, projectJsons.Count());
@@ -35,19 +36,36 @@ namespace UnitTesting
                 Purpose = "Purpose4"
             };
             var mockRepo = new Mock<IProjectJsonRepository>();
-            mockRepo.Setup(repo => repo.ProjectJsons).Returns(AddMockData());
+            mockRepo.Setup(repo => repo.InsertProjectJson(It.IsAny<ProjectJson>())).Returns(newProjectJson);
+            // mockRepo.Setup(repo => repo.InsertProjectJson(It.IsAny<ProjectJson>())).Verifiable();
             var controller = new ProjectJsonController(mockRepo.Object);
 
             var result = controller.Post(newProjectJson);
 
-            var projectJson = Assert.IsType<ProjectJson>(result);
-            Assert.Equal("4", projectJson.Id);
-            Assert.Equal("4 months", projectJson.ActivePeriod);
-            Assert.Equal("Domain4", projectJson.Domain);
-            Assert.Equal("EA4", projectJson.EligibleApplicants);
-            Assert.Equal("Purpose4", projectJson.Purpose);
+            var actionResult = Assert.IsType<ActionResult<ProjectJson>>(result);
+            var actionValue = Assert.IsType<CreatedResult>(result.Result);
+            var projectJson = (ProjectJson) actionValue.Value;
+            Assert.Equal("4", projectJson?.Id);
+            Assert.Equal("4 months", projectJson?.ActivePeriod);
+            Assert.Equal("Domain4", projectJson?.Domain);
+            Assert.Equal("EA4", projectJson?.EligibleApplicants);
+            Assert.Equal("Purpose4", projectJson?.Purpose);
         }
-        private IEnumerable<ProjectJson> AddMockData()
+
+        [Fact]
+        public void DeleteTest()
+        {
+            var mockRepo = new Mock<IProjectJsonRepository>();
+            mockRepo.Setup(repo => repo.DeleteProjectJson(It.IsAny<string>())).Verifiable();
+            var controller = new ProjectJsonController(mockRepo.Object);
+
+            var result = controller.Delete("3");
+
+            Assert.IsType<OkResult>(result);
+            mockRepo.Verify();
+        }
+        
+        private IEnumerable<ProjectJson> GetMockData()
         {
             var mockData = new List<ProjectJson>
             {

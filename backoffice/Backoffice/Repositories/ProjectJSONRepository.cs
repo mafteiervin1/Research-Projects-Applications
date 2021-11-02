@@ -18,10 +18,12 @@ namespace BackofficeComponent.Repositories
             _collection = database.GetCollection<ProjectJson>(rpaDatabaseSettings.ProjectsCollectionName);
         }
 
+        // Plays the role of GetProjectJsons() !
         public IEnumerable<ProjectJson> ProjectJsons => _collection.AsQueryable().ToEnumerable();
+        
         public IEnumerable<ProjectJson> GetProjectJsons()
         {
-            throw new System.NotImplementedException();
+            return ProjectJsons;
         }
         public ProjectJson GetProjectJsonById(String id)
         {
@@ -29,11 +31,15 @@ namespace BackofficeComponent.Repositories
         }
         public ProjectJson InsertProjectJson(ProjectJson projectJson)
         {
-            throw new System.NotImplementedException();
+            projectJson.Id ??= ObjectId.GenerateNewId().ToString();
+            _collection.InsertOne(projectJson);
+            return _collection.FindSync(entry => entry.Id == projectJson.Id).FirstOrDefault();
+            // throw new System.NotImplementedException();
         }
         public void DeleteProjectJson(String id)
         {
-            throw new System.NotImplementedException();
+            _collection.FindOneAndDelete(entry => entry.Id == id);
+            // throw new System.NotImplementedException();
         }
         public void UpdateProjectJson(ProjectJson projectJson)
         {
