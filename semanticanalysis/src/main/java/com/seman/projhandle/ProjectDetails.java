@@ -8,4 +8,5 @@ public class ProjectDetails {
     private String domain;
     private String eligibleApplicants;
     private String purpose;
+    private String moreInfo;
 }

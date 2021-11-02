@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class DomainProcessor implements Processor {
+public class DomainProcessor extends Processor {
 
     @Override
-    public String getPropertyValue(String property) {
-        //log.info("DomainProcessor");
+    public String getPropertyValue(String project) {
+        log.info("DomainProcessor");
         return "Dummy domain";
     }
 }

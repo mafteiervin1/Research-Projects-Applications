@@ -18,6 +18,7 @@ Google Docs - https://docs.google.com/document/d/1xngJoZXihOY_8WfmkG23SB8DYLjKGa
 
 Jira Board - https://researchprojectsapplications.atlassian.net/jira/software/projects/RPA/boards/1
 
+Test data input - https://www.adrnordest.ro/storage/2021/10/catalog_surse_finantare_nr_27.pdf
 
 ==================================================================
 

@@ -8,10 +8,10 @@ import java.util.List;
 
 @Log4j2
 @Component
-public class EligibleApplicantsProcessor extends Processor {
+public class MoreInfoProcessor extends Processor {
     private static List <String> keyWords = Arrays.asList(
-        "Categorii solicitanti eligibili:",
-        "Categorii solicitanti eligibili");
+        "Informatii suplimentare:",
+        "Informatii suplimentare");
 
     @Override
     public String getPropertyValue(String project) {
