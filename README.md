@@ -70,3 +70,16 @@ Rosu: Crawling component (Python)
 - Offers services as Singletons (usual practice for .NET APIs)
 
 ==================================================================
+
+## Lab 5:
+
+#### Two iterations of TDD for EligibleApplicantsProcessor and MoreInfoProcessor:
+- Ervin Maftei
+
+#### Two iterations of TDD for BudgetProcessor and PurposeProcessor:
+- Cristi Rosu
+
+#### Two iterations of TDD for Get and Post endpoints:
+- Cristi Rusu
+
+==================================================================
