@@ -9,4 +9,5 @@ public class ProjectDetails {
     private String eligibleApplicants;
     private String purpose;
     private String moreInfo;
+    private String budget;
 }
