@@ -23,7 +23,7 @@ namespace BackofficeComponent.Controllers
 
         [HttpGet]
         public ActionResult<IEnumerable<ProjectJson>> Get() =>
-            _projectJsonRepository.GetProjectJsons().ToList();
+            _projectJsonRepository.ProjectJsons.ToList();
 
         [HttpGet("{id}")]
         public ActionResult<ProjectJson> Get(String id)
@@ -34,8 +34,8 @@ namespace BackofficeComponent.Controllers
         [HttpPost]
         public ActionResult<ProjectJson> Post([FromBody] ProjectJson projectJson)
         {
-            return Created($"GetProjectJson/{projectJson.Id}",
-            _projectJsonRepository.InsertProjectJson(projectJson));
+            ProjectJson createdProjectJson = _projectJsonRepository.InsertProjectJson(projectJson);
+            return Created($"GetProjectJson/{createdProjectJson.Id}", createdProjectJson);
         }
 
         [HttpPatch]

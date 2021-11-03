@@ -35,7 +35,7 @@ namespace BackofficeComponent
             services.AddSingleton<IRpaDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<RpaDatabaseSettings>>().Value);
 
-            services.AddSingleton<ProjectJsonRepository>();
+            services.AddScoped<IProjectJsonRepository, ProjectJsonRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
