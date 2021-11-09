@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BackofficeComponent.Models;
 using BackofficeComponent.Repositories;
+using Microsoft.AspNetCore.JsonPatch;
 using MongoDB.Bson;
 
 namespace BackofficeComponent.Controllers
@@ -38,10 +39,17 @@ namespace BackofficeComponent.Controllers
             return Created($"GetProjectJson/{createdProjectJson.Id}", createdProjectJson);
         }
 
-        [HttpPatch]
-        public IActionResult Patch([FromBody] ProjectJson projectJson)
+        [HttpPut]
+        public IActionResult Put([FromBody] ProjectJson projectJson)
         {
-            _projectJsonRepository.UpdateProjectJson(projectJson);
+            _projectJsonRepository.ReplaceProjectJson(projectJson);
+            return Ok();
+        }
+
+        [HttpPatch("{id}")]
+        public IActionResult Patch(String id, [FromBody] JsonPatchDocument<ProjectJson> projectJson)
+        {
+            _projectJsonRepository.UpdateProjectJson(id, projectJson.ToString());
             return Ok();
         }
 
