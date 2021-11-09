@@ -9,7 +9,6 @@ public class ActivePeriodProcessor extends Processor {
 
     @Override
     public String getPropertyValue(String project) {
-        log.info("ActivePeriodProcessor");
         return "Dummy active period";
     }
 }
