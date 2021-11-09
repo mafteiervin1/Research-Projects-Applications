@@ -33,7 +33,9 @@ namespace UnitTesting
                 ActivePeriod = "4 months",
                 Domain = "Domain4",
                 EligibleApplicants = "EA4",
-                Purpose = "Purpose4"
+                Purpose = "Purpose4",
+                MoreInfo = "no more info",
+                Budget = "4000$"
             };
             var mockRepo = new Mock<IProjectJsonRepository>();
             mockRepo.Setup(repo => repo.InsertProjectJson(It.IsAny<ProjectJson>())).Returns(newProjectJson);
@@ -50,6 +52,8 @@ namespace UnitTesting
             Assert.Equal("Domain4", projectJson?.Domain);
             Assert.Equal("EA4", projectJson?.EligibleApplicants);
             Assert.Equal("Purpose4", projectJson?.Purpose);
+            Assert.Equal("no more info", projectJson?.MoreInfo);
+            Assert.Equal("4000$", projectJson?.Budget);
         }
 
         [Fact]
@@ -75,7 +79,9 @@ namespace UnitTesting
                     ActivePeriod = "1 month",
                     Domain = "Domain1",
                     EligibleApplicants = "EA1",
-                    Purpose = "Purpose1"
+                    Purpose = "Purpose1",
+                    MoreInfo = "no more info",
+                    Budget = "1000$"
                 },
                 new()
                 {
@@ -83,7 +89,9 @@ namespace UnitTesting
                     ActivePeriod = "2 months",
                     Domain = "Domain2",
                     EligibleApplicants = "EA2",
-                    Purpose = "Purpose2"
+                    Purpose = "Purpose2",
+                    MoreInfo = "no more info",
+                    Budget = "2000$"
                 },
                 new()
                 {
@@ -91,7 +99,9 @@ namespace UnitTesting
                     ActivePeriod = "3 months",
                     Domain = "Domain3",
                     EligibleApplicants = "EA3",
-                    Purpose = "Purpose3"
+                    Purpose = "Purpose3",
+                    MoreInfo = "no more info",
+                    Budget = "3000$"
                 }
             };
             return mockData;
