@@ -10,4 +10,6 @@ public class ProjectDetails {
     private String purpose;
     private String moreInfo;
     private String budget;
+    private String eligibleActivities;
+    private String finances;
 }
