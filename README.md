@@ -83,3 +83,18 @@ Rosu: Crawling component (Python)
 - Cristi Rusu
 
 ==================================================================
+
+## Lab 6:
+
+#### Semantic Analysis component progress - Ervin Maftei:
+- work
+
+#### Semantic Analysis component progress - Cristi Rosu:
+- work
+
+#### Backoffice component progress - Cristi Rusu:
+- Implementation for endpoints
+- Logger Aspect on repository methods
+- Model update + necessary modifications to repository tests
+
+==================================================================
