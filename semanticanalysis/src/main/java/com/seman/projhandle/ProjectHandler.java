@@ -27,14 +27,22 @@ public class ProjectHandler {
     @Autowired
     BudgetProcessor budgetProcessor;
 
+    @Autowired
+    EligibleActivitiesProcessor eligibleActivitiesProcessor;
+
+    @Autowired
+    FinancesProcessor financesProcessor;
+
     public ProjectDetails getProjectDetails(String project) {
         return ProjectDetails.builder()
-                             .activePeriod(activePeriodProcessor.getPropertyValue(project))
-                             .domain(domainProcessor.getPropertyValue(project))
-                             .purpose(purposeProcessor.getPropertyValue(project))
-                             .eligibleApplicants(eligibleApplicantsProcessor.getPropertyValue(project))
-                             .moreInfo(moreInfoProcessor.getPropertyValue(project))
-                             .budget(budgetProcessor.getPropertyValue(project))
-                             .build();
+                .activePeriod(activePeriodProcessor.getPropertyValue(project))
+                .domain(domainProcessor.getPropertyValue(project))
+                .purpose(purposeProcessor.getPropertyValue(project))
+                .eligibleApplicants(eligibleApplicantsProcessor.getPropertyValue(project))
+                .moreInfo(moreInfoProcessor.getPropertyValue(project))
+                .budget(budgetProcessor.getPropertyValue(project))
+                .eligibleActivities(eligibleActivitiesProcessor.getPropertyValue(project))
+                .finances(financesProcessor.getPropertyValue(project))
+                .build();
     }
 }

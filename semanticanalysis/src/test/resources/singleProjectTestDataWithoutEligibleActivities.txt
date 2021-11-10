@@ -1,5 +1,3 @@
-START
-
 Obiectiv
 Imbunătățirea condițiilor de viață și de educație în comunitățile dezavantajate
 cu un procent ridicat de populație romă, prin finanțarea proiectelor de nivel
@@ -16,13 +14,6 @@ neguvernamentale, ȋnfiinţate ca persoane juridice ȋn România;
 din Statele Donatoare: orice entitate publică sau privată, cu caracter
 comercial sau necomercial, precum și organizații neguvernamentale
 înființate ca persoane juridice în Statele Donatoare.
-
-Activitati eligibile
-1. Educație (îmbunătățirea condițiilor/ infrastructurii educaționale)
-2. Sănătate (îmbunătățirea condițiilor/ infrastructurii de sănătate)
-3. Locuire (îmbunătățirea condițiilor de locuit)
-4. Juridic (limitat la obținerea documentelor de identitate sau proprietate și la
-clarificarea situațiilor individuale de locuire).
 
 Valoare grant:
 min. 20.000 euro – max. 50.000 euro
@@ -52,5 +43,3 @@ max. 100%
 
 Termen limită
 15 noiembrie 2021
-
-END

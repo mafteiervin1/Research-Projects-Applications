@@ -1,5 +1,3 @@
-START
-
 Obiectiv
 Imbunătățirea condițiilor de viață și de educație în comunitățile dezavantajate
 cu un procent ridicat de populație romă, prin finanțarea proiectelor de nivel
@@ -49,8 +47,3 @@ Buget apel
 
 Finanțare primită (%)
 max. 100%
-
-Termen limită
-15 noiembrie 2021
-
-END
