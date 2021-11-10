@@ -10,14 +10,14 @@ import java.util.List;
 @Component
 public class PurposeProcessor extends Processor {
     private static List <String> keyWords = Arrays.asList(
-            "Obiectiv",
-            "Obiectiv:",
-            "Obiectiv proiect",
-            "Obiectiv proiect:",
-            "Scop",
-            "Scop:",
-            "Scop proiect",
-            "Scop proiect:"
+        "Obiectiv",
+        "Obiectiv:",
+        "Obiectiv proiect",
+        "Obiectiv proiect:",
+        "Scop",
+        "Scop:",
+        "Scop proiect",
+        "Scop proiect:"
     );
 
     @Override

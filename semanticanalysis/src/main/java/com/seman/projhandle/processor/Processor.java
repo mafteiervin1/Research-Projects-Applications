@@ -10,7 +10,7 @@ public abstract class Processor {
 
     String searchKeywordsInProjectString(String project, List <String> keyWords) {
         for (String keyword : keyWords) {
-            if(project.contains(keyword)) {
+            if (project.contains(keyword)) {
                 log.info("Keyword [{}] found for [{}]", keyword, super.getClass().getName());
                 String field = project.substring(project.indexOf(keyword) + keyword.length()).trim();
                 StringBuilder fieldValue = new StringBuilder();
@@ -20,7 +20,8 @@ public abstract class Processor {
                         fieldValue.append(line);
                         fieldValue.append(System.lineSeparator());
                     } else {
-                        return fieldValue.toString().substring(0, fieldValue.toString().lastIndexOf(System.lineSeparator()));
+                        return fieldValue.toString()
+                                         .substring(0, fieldValue.toString().lastIndexOf(System.lineSeparator()));
                     }
                 }
             }
