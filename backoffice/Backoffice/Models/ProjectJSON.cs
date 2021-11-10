@@ -21,5 +21,11 @@ namespace BackofficeComponent.Models
         
         [BsonElement("purpose")]
         public String Purpose { get; set; }
+        
+        [BsonElement("moreInfo")]
+        public String MoreInfo { get; set; }
+        
+        [BsonElement("budget")]
+        public String Budget { get; set; }
     }
 }

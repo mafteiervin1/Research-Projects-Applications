@@ -13,7 +13,7 @@ namespace BackofficeComponent.Repositories
         ProjectJson GetProjectJsonById(String id);
         ProjectJson InsertProjectJson(ProjectJson projectJson);
         void DeleteProjectJson(String id);
-        void UpdateProjectJson(ProjectJson projectJson);
-        
+        void ReplaceProjectJson(ProjectJson projectJson);
+        void UpdateProjectJson(string id, string updateJson);
     }
 }
