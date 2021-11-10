@@ -8,16 +8,16 @@ import java.util.List;
 
 @Log4j2
 @Component
-public class BudgetProcessor extends Processor{
-    private static List<String> keyWords = Arrays.asList(
-            "Buget apel",
-            "Buget apel:",
-            "Buget",
-            "Buget:",
-            "Fonduri",
-            "Fonduri:",
-            "Fonduri alocate",
-            "Fonduri alocate:"
+public class BudgetProcessor extends Processor {
+    private static List <String> keyWords = Arrays.asList(
+        "Buget apel",
+        "Buget apel:",
+        "Buget",
+        "Buget:",
+        "Fonduri",
+        "Fonduri:",
+        "Fonduri alocate",
+        "Fonduri alocate:"
     );
 
     @Override

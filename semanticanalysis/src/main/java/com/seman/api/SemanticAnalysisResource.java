@@ -19,9 +19,9 @@ public class SemanticAnalysisResource {
     private SemanticWebService semanticWebService;
 
     @GetMapping
-    @RequestMapping(value = "/dummy", produces = "application/json", consumes = "application/json")
+    @RequestMapping(value = "/crawl", produces = "application/json", consumes = "application/json")
     public @ResponseBody
-    ResponseEntity<String> dummyApi(@RequestBody CrawlerRequestBody projects) {
+    ResponseEntity <String> crawlProject(@RequestBody CrawlerRequestBody projects) {
         semanticWebService.handleProjectInformations(projects.getProjects());
         return ResponseEntity.ok("Dummy api.");
     }

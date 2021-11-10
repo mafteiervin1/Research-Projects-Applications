@@ -8,14 +8,7 @@ import java.util.List;
 @Data
 @JsonSerialize
 public class CrawlerRequestBody {
+
     private List <String> projects;
-
-    public List <String> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List <String> projects) {
-        this.projects = projects;
-    }
 
 }
