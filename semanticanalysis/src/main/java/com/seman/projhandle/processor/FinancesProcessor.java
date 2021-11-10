@@ -1,9 +1,14 @@
 package com.seman.projhandle.processor;
 
+import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+@Log4j2
+@Component
 public class FinancesProcessor extends Processor {
     private static final List<String> keyWords1 = Arrays.asList(
             "Finantator:",
