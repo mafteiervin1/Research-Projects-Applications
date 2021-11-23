@@ -23,7 +23,7 @@ class EligibleApplicantsProcessorTest {
     @Test
     void testGetPropertyValueReturnEligibleApplicants() {
         projectTestData = IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream("singleProjectTestDataWithAllProperties.txt"));
-        String expectedResult = "Unități administrative teritoriale de tipul comunelor și orașelor (inclusiv municipii)\r\nOrganizațiile neguvernamentale";
+        String expectedResult = "Unități administrative teritoriale de tipul comunelor și orașelor (inclusiv municipii)\nOrganizațiile neguvernamentale";
         assertEquals(expectedResult, eligibleApplicantsProcessor.getPropertyValue(projectTestData));
     }
 

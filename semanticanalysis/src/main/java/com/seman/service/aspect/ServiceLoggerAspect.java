@@ -13,7 +13,7 @@ public class ServiceLoggerAspect {
 
     @After(value = "execution(public * com.seman.service.SemanticWebService.handleProjectInformations(*))")
     public void after(JoinPoint joinPoint) {
-        log.info("backoffice called with {} ", joinPoint.getArgs());
+        log.info("backoffice called with [{}] ", joinPoint.getArgs());
     }
 
 }
