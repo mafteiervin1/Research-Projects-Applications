@@ -27,5 +27,11 @@ namespace BackofficeComponent.Models
         
         [BsonElement("budget")]
         public String Budget { get; set; }
+        
+        [BsonElement("eligibleActivities")]
+        public String EligibleActivities { get; set; }
+        
+        [BsonElement("finances")]
+        public String Finances { get; set; }
     }
 }
