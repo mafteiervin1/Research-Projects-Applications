@@ -9,23 +9,23 @@ public abstract class Processor {
     abstract String getPropertyValue(String project);
 
     String searchKeywordsInProjectString(String project, List <String> keyWords) {
+        StringBuilder fieldValue = new StringBuilder();
         for (String keyword : keyWords) {
             if (project.contains(keyword)) {
                 log.info("Keyword [{}] found for [{}]", keyword, super.getClass().getName());
                 String field = project.substring(project.indexOf(keyword) + keyword.length()).trim();
-                StringBuilder fieldValue = new StringBuilder();
-                String[] fieldLines = field.split(System.lineSeparator());
+                String[] fieldLines = field.split("\n");
                 for (String line : fieldLines) {
                     if (!line.isEmpty()) {
                         fieldValue.append(line);
-                        fieldValue.append(System.lineSeparator());
+                        fieldValue.append("\n");
                     } else {
                         return fieldValue.toString()
-                                         .substring(0, fieldValue.toString().lastIndexOf(System.lineSeparator()));
+                                         .substring(0, fieldValue.toString().lastIndexOf("\n"));
                     }
                 }
             }
         }
-        return "";
+        return fieldValue.toString();
     }
 }

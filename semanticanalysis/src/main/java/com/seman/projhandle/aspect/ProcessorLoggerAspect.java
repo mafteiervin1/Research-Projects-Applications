@@ -14,7 +14,7 @@ public class ProcessorLoggerAspect {
     @AfterReturning(value = "execution(public * com.seman.projhandle.processor.Processor.getPropertyValue(java.lang.String))", returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
 
-        log.info("{} return value {}", joinPoint.getSignature(), result);
+        log.info("[{}] return value [{}]", joinPoint.getSignature(), result);
     }
 
 }
