@@ -1,4 +1,3 @@
-using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -8,30 +7,35 @@ namespace BackofficeComponent.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public String Id { get; set; }
+        public string Id { get; set; }
         
         [BsonElement("activePeriod")]
-        public String ActivePeriod { get; set; }
+        public string ActivePeriod { get; set; }
         
         [BsonElement("domain")]
-        public String Domain { get; set; }
+        public string Domain { get; set; }
         
         [BsonElement("eligibleApplicants")]
-        public String EligibleApplicants { get; set; }
+        public string EligibleApplicants { get; set; }
         
         [BsonElement("purpose")]
-        public String Purpose { get; set; }
+        public string Purpose { get; set; }
         
         [BsonElement("moreInfo")]
-        public String MoreInfo { get; set; }
+        public string MoreInfo { get; set; }
         
         [BsonElement("budget")]
-        public String Budget { get; set; }
+        public string Budget { get; set; }
         
         [BsonElement("eligibleActivities")]
-        public String EligibleActivities { get; set; }
+        public string EligibleActivities { get; set; }
         
         [BsonElement("finances")]
-        public String Finances { get; set; }
+        public string Finances { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

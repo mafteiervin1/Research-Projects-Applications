@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using BackofficeComponent.Models;
 using BackofficeComponent.Repositories;
 using Microsoft.AspNetCore.JsonPatch;
-using MongoDB.Bson;
 
 namespace BackofficeComponent.Controllers
 {
@@ -32,11 +29,19 @@ namespace BackofficeComponent.Controllers
             return _projectJsonRepository.GetProjectJsonById(id);
         }
 
-        [HttpPost]
+        [HttpPost("one")]
         public ActionResult<ProjectJson> Post([FromBody] ProjectJson projectJson)
         {
             ProjectJson createdProjectJson = _projectJsonRepository.InsertProjectJson(projectJson);
             return Created($"GetProjectJson/{createdProjectJson.Id}", createdProjectJson);
+        }
+
+        [HttpPost("many")]
+        public ActionResult<ProjectJson> Post([FromBody] IEnumerable<ProjectJson> projectJsons)
+        {
+            IEnumerable<ProjectJson> createdProjectJsons = _projectJsonRepository.InsertProjectJsonCollection(projectJsons);
+            
+            return Created("GetProjectJson/", createdProjectJsons);
         }
 
         [HttpPut]
@@ -47,9 +52,10 @@ namespace BackofficeComponent.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Patch(String id, [FromBody] JsonPatchDocument<ProjectJson> projectJson)
+        public IActionResult Patch(String id, [FromBody] JsonPatchDocument<ProjectJson> projectJsonPatch)
         {
-            _projectJsonRepository.UpdateProjectJson(id, projectJson.ToString());
+            
+            _projectJsonRepository.UpdateProjectJson(id, projectJsonPatch);
             return Ok();
         }
 
