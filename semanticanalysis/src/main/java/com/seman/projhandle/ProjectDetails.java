@@ -1,8 +1,12 @@
 package com.seman.projhandle;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Builder
+@Getter
+@Setter
 public class ProjectDetails {
     private String activePeriod;
     private String domain;
