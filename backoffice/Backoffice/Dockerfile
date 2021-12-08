@@ -16,5 +16,5 @@ RUN dotnet publish -c release -o /app --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build /app ./
-ENV ASPNETCORE_URLS=http://+:80
+ENV ASPNETCORE_URLS=https://+:80
 ENTRYPOINT ["dotnet", "BackofficeComponent.dll","--server.urls", "https://+:8090"] 
