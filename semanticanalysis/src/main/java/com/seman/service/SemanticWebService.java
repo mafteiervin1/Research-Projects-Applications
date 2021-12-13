@@ -1,5 +1,9 @@
 package com.seman.service;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seman.projhandle.ProjectDetails;
 import com.seman.projhandle.ProjectHandler;
 import lombok.extern.log4j.Log4j2;
@@ -20,7 +24,7 @@ public class SemanticWebService {
     @Autowired
     ProjectHandler projectHandler;
 
-    @Value("${backoffice.url:localhost:8090/projectjson}")
+    @Value("${backoffice.url:http://backoffice:8090/projectjson}")
     private String backofficeUrl;
 
     public void handleProjectInformations(List <String> projects) {
@@ -29,12 +33,24 @@ public class SemanticWebService {
         persistProjectDetailsToBackoffice(processedProjectsList);
     }
 
-    private ResponseEntity <HttpStatus> persistProjectDetailsToBackoffice(List <ProjectDetails> projectsList) {
+    private ResponseEntity <String> persistProjectDetailsToBackoffice(List <ProjectDetails> projectsList) {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(backofficeUrl, new HttpEntity <>(projectsList.get(0)), String.class );
-        return ResponseEntity.ok(OK);
+        ResponseEntity<String> response = null;
+        try {
+            log.info("request: {}", objectMapper.writeValueAsString(projectsList.get(0)));
+            response = restTemplate.postForEntity(backofficeUrl,
+                new HttpEntity <>(objectMapper.writeValueAsString(projectsList.get(0)), headers), String.class);
+            log.info("response is null {}",response != null);
+        } catch (JsonProcessingException e) {
+            log.error("===============BO request failed==============\n", e);
+        }
+        log.info("==============Status code from BO============\n{}", response.getStatusCode());
+        log.info("==============Response body from BO=============\n{}", response.getBody());
+        return ResponseEntity.ok(response.getBody());
     }
 }

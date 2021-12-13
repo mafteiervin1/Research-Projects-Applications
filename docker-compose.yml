@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backoffice:
+    container_name: backoffice
+    hostname: backoffice
+    image: backoffice:latest
+    ports:
+      - "8090:8090"
+    restart: always
+
+  semantic_analysis:
+    container_name: semantic-analysis
+    hostname: semantic_analysis
+    image: semantic-analysis:latest
+    depends_on:
+      - backoffice
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    links:
+      - "backoffice"
+    environment:
+      - BACKOFFICE_URL=http://backoffice:8090/projectjson
+    restart: always
