@@ -47,10 +47,10 @@ public class SemanticWebService {
                 new HttpEntity <>(objectMapper.writeValueAsString(projectsList.get(0)), headers), String.class);
             log.info("response is null {}",response != null);
         } catch (JsonProcessingException e) {
-            log.error("===============NU A MERS REQUESTUL SPRE BO==============\n", e);
+            log.error("===============BO request failed==============\n", e);
         }
         log.info("==============Status code from BO============\n{}", response.getStatusCode());
         log.info("==============Response body from BO=============\n{}", response.getBody());
-        return ResponseEntity.ok("gg ai trimis la BO");
+        return ResponseEntity.ok(response.getBody());
     }
 }
