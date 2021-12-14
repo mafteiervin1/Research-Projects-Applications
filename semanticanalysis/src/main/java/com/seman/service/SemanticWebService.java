@@ -42,7 +42,7 @@ public class SemanticWebService {
 
         ResponseEntity<String> response = null;
         try {
-            log.info("request: {}", objectMapper.writeValueAsString(projectsList.get(0)));
+            log.info("==============Request to BO============\n{}", objectMapper.writeValueAsString(projectsList.get(0)));
             response = restTemplate.postForEntity(backofficeUrl,
                 new HttpEntity <>(objectMapper.writeValueAsString(projectsList.get(0)), headers), String.class);
             log.info("response is null {}",response != null);

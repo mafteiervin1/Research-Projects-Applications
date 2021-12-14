@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class Processor {
     abstract String getPropertyValue(String project);
 
-    String searchKeywordsInProjectString(String project, List <String> keyWords) {
+    public String searchKeywordsInProjectString(String project, List <String> keyWords) {
         StringBuilder fieldValue = new StringBuilder();
         for (String keyword : keyWords) {
             if (project.contains(keyword)) {
@@ -20,8 +20,7 @@ public abstract class Processor {
                         fieldValue.append(line);
                         fieldValue.append("\n");
                     } else {
-                        return fieldValue.toString()
-                                         .substring(0, fieldValue.toString().lastIndexOf("\n"));
+                        return fieldValue.substring(0, fieldValue.toString().lastIndexOf("\n"));
                     }
                 }
             }

@@ -1,0 +1,18 @@
+activePeriod:
+  keyWords:
+    - "Termen limita"
+    - "Termen limită"
+    - "Termen limita:"
+    - "Termen limită:"
+budget:
+  keyWords:
+    - "Buget apel"
+    - "Buget apel:"
+    - "Buget"
+    - "Buget:"
+    - "Fonduri"
+    - "Fonduri:"
+    - "Fonduri alocate"
+    - "Fonduri alocate:"
+  regex:
+    - "[123]"
