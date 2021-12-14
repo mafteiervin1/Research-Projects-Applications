@@ -21,6 +21,11 @@ namespace BackofficeComponent.Repositories
             _collection = database.GetCollection<ProjectJson>(rpaDatabaseSettings.ProjectsCollectionName);
         }
 
+        public ProjectJsonRepository(IMongoCollection<ProjectJson> collection)
+        {
+            _collection = collection;
+        }
+
         // Plays the role of GetProjectJsons() !
         [LoggingAspect]
         public IEnumerable<ProjectJson> ProjectJsons => _collection.AsQueryable().ToEnumerable();
