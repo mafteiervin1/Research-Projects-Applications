@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.nio.charset.StandardCharsets;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -31,7 +33,7 @@ public class PurposeProcessorTest {
         + "comunitar (dezvoltate în cadrul unei singure UAT) care abordează necesități\n"
         + "prioritare specifice identificate într-un mod participativ.";
 
-        assertEquals(expectedResult, purposeProcessor.getPropertyValue(projectTestData));
+        assertEquals(new String(expectedResult.getBytes(), StandardCharsets.UTF_8), purposeProcessor.getPropertyValue(projectTestData));
     }
 
     @Test

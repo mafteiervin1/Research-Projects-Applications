@@ -24,7 +24,7 @@ public class SemanticWebService {
     @Autowired
     ProjectHandler projectHandler;
 
-    @Value("${backoffice.url:http://backoffice:8090/projectjson}")
+    @Value("${backoffice.url:http://backoffice:8090/projectjson/many}")
     private String backofficeUrl;
 
     public void handleProjectInformations(List <String> projects) {
@@ -42,9 +42,9 @@ public class SemanticWebService {
 
         ResponseEntity<String> response = null;
         try {
-            log.info("==============Request to BO============\n{}", objectMapper.writeValueAsString(projectsList.get(0)));
+            log.info("==============Request to BO============\n{}", objectMapper.writeValueAsString(projectsList));
             response = restTemplate.postForEntity(backofficeUrl,
-                new HttpEntity <>(objectMapper.writeValueAsString(projectsList.get(0)), headers), String.class);
+                new HttpEntity <>(objectMapper.writeValueAsString(projectsList), headers), String.class);
             log.info("response is null {}",response != null);
         } catch (JsonProcessingException e) {
             log.error("===============BO request failed==============\n", e);

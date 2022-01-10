@@ -37,13 +37,15 @@ public class ProjectHandler {
     FinancesProcessor financesProcessor;
 
     public ProjectDetails getProjectDetails(String project) {
+        //ConcreteProcessor concreteProcessor = processors.loadResourceFile();
+
         return ProjectDetails.builder()
                 .activePeriod(activePeriodProcessor.getPropertyValue(project))
                 .domain(domainProcessor.getPropertyValue(project))
                 .purpose(purposeProcessor.getPropertyValue(project))
                 .eligibleApplicants(eligibleApplicantsProcessor.getPropertyValue(project))
                 .moreInfo(moreInfoProcessor.getPropertyValue(project))
-                .budget(processors.getProcessors().get("budget").getPropertyValue(project))
+                .budget(budgetProcessor.getPropertyValue(project))
                 .eligibleActivities(eligibleActivitiesProcessor.getPropertyValue(project))
                 .finances(financesProcessor.getPropertyValue(project))
                 .build();

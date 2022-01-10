@@ -10,6 +10,7 @@ import java.util.List;
 @Component
 public class PurposeProcessor extends Processor {
     private static List <String> keyWords = Arrays.asList(
+        "Obiectivele proiectelor",
         "Obiectiv",
         "Obiectiv:",
         "Obiectiv proiect",
@@ -20,8 +21,17 @@ public class PurposeProcessor extends Processor {
         "Scop proiect:"
     );
 
+    private static List<String> patterns = Arrays.asList(
+        "(?i)scop.*( proiect.*(:)?)?\\s*",
+        "(?i)obiectiv.*( proiect.*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
+        }
         return searchKeywordsInProjectString(project, keyWords);
     }
 }

@@ -10,7 +10,19 @@ Cristi Rusu (MLC) - cristirusu99@gmail.com
 
 Cristi Rosu (MLC) - cristian.rosu453@gmail.com
 
-Balan Maria (MLC) - balanmaria1998@gmail.com
+
+Build:
+
+cd Research-Projects-Applications\semanticanalysis
+
+docker build --tag=semantic-analysis:latest .
+docker run --rm -it -p 8080:8080 semantic-analysis:latest
+
+
+cd Research-Projects-Applications\backoffice\Backoffice
+
+docker build -t backoffice:latest .
+docker run --rm -it -p 8090:8090 backoffice:latest
 
 Team coordinator: Adrian Iftene
 

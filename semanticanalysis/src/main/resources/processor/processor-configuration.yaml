@@ -4,6 +4,8 @@ activePeriod:
     - "Termen limită"
     - "Termen limita:"
     - "Termen limită:"
+  regex:
+    - "(.termen.)"
 budget:
   keyWords:
     - "Buget apel"
@@ -15,4 +17,4 @@ budget:
     - "Fonduri alocate"
     - "Fonduri alocate:"
   regex:
-    - "[123]"
+    - "(.termen.)"
