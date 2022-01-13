@@ -20,8 +20,19 @@ public class BudgetProcessor extends Processor {
         "Fonduri alocate:"
     );
 
+    private static List <String> patterns = Arrays.asList(
+        "(?i)Buget.*(:)?\\s*",
+        "(?i)Buget.*( apel.*(:)?)?\\s*",
+        "(?i)Fonduri.*(:)?\\s*",
+        "(?i)Fonduri.*( (apel|alocate).*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
+        }
         return searchKeywordsInProjectString(project, keyWords);
     }
 }
