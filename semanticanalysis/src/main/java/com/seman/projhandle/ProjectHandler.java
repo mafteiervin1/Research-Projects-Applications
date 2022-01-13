@@ -1,5 +1,6 @@
 package com.seman.projhandle;
 
+import com.seman.config.ProcessorConfig;
 import com.seman.projhandle.processor.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 public class ProjectHandler {
+    @Autowired
+    ProcessorConfig processors;
 
     @Autowired
     ActivePeriodProcessor activePeriodProcessor;
@@ -34,6 +37,8 @@ public class ProjectHandler {
     FinancesProcessor financesProcessor;
 
     public ProjectDetails getProjectDetails(String project) {
+        //ConcreteProcessor concreteProcessor = processors.loadResourceFile();
+
         return ProjectDetails.builder()
                 .activePeriod(activePeriodProcessor.getPropertyValue(project))
                 .domain(domainProcessor.getPropertyValue(project))

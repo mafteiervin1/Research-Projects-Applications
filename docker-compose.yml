@@ -20,5 +20,5 @@ services:
     links:
       - "backoffice"
     environment:
-      - BACKOFFICE_URL=http://backoffice:8090/projectjson
+      - BACKOFFICE_URL=http://backoffice:8090/projectjson/many
     restart: always
