@@ -13,8 +13,16 @@ public class EligibleApplicantsProcessor extends Processor {
         "Categorii solicitanti eligibili:",
         "Categorii solicitanti eligibili");
 
+    private static List<String> patterns = Arrays.asList(
+        "(?i)Categori.*( solicitant.*(:)?)? .*( eligibil.*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
+        }
         return searchKeywordsInProjectString(project, keyWords);
     }
 }

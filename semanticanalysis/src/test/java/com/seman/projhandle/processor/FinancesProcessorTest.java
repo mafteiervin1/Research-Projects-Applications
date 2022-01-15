@@ -27,8 +27,7 @@ public class FinancesProcessorTest {
                         .getResourceAsStream("singleProjectTestDataWithAllProperties.txt")
         );
         String expectedResult = "Mecanismul Financiar SEE\n" +
-                "2014-2021 si guvernul Romaniei\n" +
-                "Finantare primita: max. 100%";
+                "2014-2021 si guvernul Romaniei";
         assertEquals(expectedResult, financesProcessor.getPropertyValue(projectTestData));
     }
 

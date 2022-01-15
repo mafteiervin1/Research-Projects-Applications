@@ -5,33 +5,32 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 @Log4j2
 @Component
 public class FinancesProcessor extends Processor {
-    private static final List<String> keyWords1 = Arrays.asList(
-            "Finantator:",
-            "Finantator",
-            "Finanțator:",
-            "Finanțator"
+    private static final List <String> keyWords = Arrays.asList(
+        "Finantator:",
+        "Finantator",
+        "Finanțator:",
+        "Finanțator",
+        "Finantare primita (%):",
+        "Finantare primita (%)",
+        "Finanțare primită (%):",
+        "Finanțare primită (%)"
     );
-    private static final List<String> keyWords2 = Arrays.asList(
-            "Finantare primita (%):",
-            "Finantare primita (%)",
-            "Finanțare primită (%):",
-            "Finanțare primită (%)"
+
+    private static List <String> patterns = Arrays.asList(
+        "(?i)finanțat.*(:)?\\s*",
+        "(?i)finanțar.*( primit.*(:)?)?\\s*"
     );
 
     @Override
     public String getPropertyValue(String project) {
-        String organization = searchKeywordsInProjectString(project, keyWords1);
-        String percentage = searchKeywordsInProjectString(project, keyWords2);
-
-        if (Objects.equals(organization, "") || Objects.equals(percentage, "")) {
-            return "";
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
         }
-
-        return organization + "\nFinantare primita: " + percentage;
+        return searchKeywordsInProjectString(project, keyWords);
     }
 }

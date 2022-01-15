@@ -14,13 +14,16 @@ public class EligibleActivitiesProcessor extends Processor {
             "Activitati eligibile"
     );
 
+    private static List<String> patterns = Arrays.asList(
+        "(?i)Activitat.*( eligibil.*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
-        String rawActivities = searchKeywordsInProjectString(project, keyWords);
-        if (rawActivities.indexOf(':') > 0) {
-            rawActivities = rawActivities.split(":")[1];
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
         }
-        rawActivities = rawActivities.trim();
-        return rawActivities;
+        return searchKeywordsInProjectString(project, keyWords);
     }
 }

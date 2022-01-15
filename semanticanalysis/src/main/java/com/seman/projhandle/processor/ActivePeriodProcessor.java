@@ -17,8 +17,16 @@ public class ActivePeriodProcessor extends Processor {
             "Termen limită"
     );
 
+    private static List <String> patterns = Arrays.asList(
+        "(?i)termen.*( limit.*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
+        }
         return searchKeywordsInProjectString(project, keyWords);
     }
 }

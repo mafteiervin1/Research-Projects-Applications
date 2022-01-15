@@ -13,8 +13,16 @@ public class MoreInfoProcessor extends Processor {
         "Informatii suplimentare:",
         "Informatii suplimentare");
 
+    private static List<String> patterns = Arrays.asList(
+        "(?i)informati.*( suplimentar.*(:)?)?\\s*"
+    );
+
     @Override
     public String getPropertyValue(String project) {
+        String matchedRegex = matchRegexInProjectString(project, patterns);
+        if (!matchedRegex.isEmpty()) {
+            return matchedRegex;
+        }
         return searchKeywordsInProjectString(project, keyWords);
     }
 }
