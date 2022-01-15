@@ -27,10 +27,11 @@ public class SemanticWebService {
     @Value("${backoffice.url:http://backoffice:8090/projectjson/many}")
     private String backofficeUrl;
 
-    public void handleProjectInformations(List <String> projects) {
+    public List <ProjectDetails> handleProjectInformations(List <String> projects) {
         List <ProjectDetails> processedProjectsList = new ArrayList <>();
         projects.forEach(project -> processedProjectsList.add(projectHandler.getProjectDetails(project)));
         persistProjectDetailsToBackoffice(processedProjectsList);
+        return processedProjectsList;
     }
 
     private ResponseEntity <String> persistProjectDetailsToBackoffice(List <ProjectDetails> projectsList) {
